@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: devkitpro/devkita64:latest
+    container: devkitpro/toolchain-base:latest
 
     steps:
     - name: Checkout this repo
