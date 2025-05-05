@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: devkitpro/devkitpro-pacman:latest
+    container: devkitpro/devkita64:latest
 
     steps:
     - name: Checkout this repo
