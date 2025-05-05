@@ -24,6 +24,7 @@ jobs:
         cd /root/workspace
         git submodule init
         git submodule update
+        git clone https://github.com/libretro/libretro-super.git
         cd libretro-super
         ./libretro-buildbot-recipe.sh ../core-melonds
         pwd
