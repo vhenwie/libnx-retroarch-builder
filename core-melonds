@@ -1,0 +1,1 @@
+melonds libretro-melonds https://github.com/vhenwie/melonDS.git master NO GENERIC Makefile . STATIC_LINKING=1 HAVE_OPENGL=1 HAVE_THREADS=1 HAVE_NEON=1 JIT_ARCH=aarch64
