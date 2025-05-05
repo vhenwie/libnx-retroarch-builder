@@ -1,0 +1,33 @@
+name: Build RetroArch Core for Switch
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitpro-pacman:latest
+
+    steps:
+    - name: Checkout this repo
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        pacman -Sy --noconfirm
+        pacman -S --noconfirm devkitA64 libnx make git zip
+
+    - name: Build
+      run: |
+        cd /root/workspace
+        git submodule init
+        git submodule update
+        cd libretro-super
+        ./libretro-buildbot-recipe.sh ../core-melonds
+        pwd
+        cd dist/unix
+        for i in *.a; do cp ../info/\${i%.*}.info .; done
+        ls -lah ./"
+        
