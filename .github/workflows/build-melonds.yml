@@ -31,4 +31,11 @@ jobs:
         cd dist/unix
         for i in *.a; do cp ../info/\${i%.*}.info .; done
         ls -lah ./"
-        
+
+    - name: Upload the build artifacts
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: MelonDS core with JIT enabled for libNX
+        path: libretro-super/dist/unix/*
+        if-no-files-found: error
+        retention-days: 90
