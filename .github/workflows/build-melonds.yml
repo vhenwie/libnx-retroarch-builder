@@ -11,10 +11,8 @@ jobs:
     container: devkitpro/toolchain-base:latest
 
     steps:
+    - uses: actions/checkout@v3
     - name: Checkout this repo
-    - uses: actions/checkout@v3.0.0
-
-    - name: Build
       run: |
         cd /root/workspace
         git submodule init
